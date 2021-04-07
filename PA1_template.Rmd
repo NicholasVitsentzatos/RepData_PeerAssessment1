@@ -55,7 +55,9 @@ summary(Ts)
          return("weekday")}
      else if (day %in% c("Σάββατο", "Κυριακή")){ 
          return("weekend")}
-}
+ }
+filled.df$date <- as.Date(filled.df$date)
+filled.df$day <- sapply(filled.df$date, FUN=weekday.or.weekend)
 averages <- aggregate(steps ~ interval + day, data=filled.df, mean)
 
 ggplot(averages, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) + xlab("5-minute interval") + ylab("Number of steps")
