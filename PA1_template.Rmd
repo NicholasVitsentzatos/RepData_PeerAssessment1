@@ -7,7 +7,7 @@ output:
 
 
 ## Loading and preprocessing the data
-```{r,echo=TRUE}
+```{r,echo=TRUE,results='asis'}
 df<-read.csv("activity.csv")
 library(ggplot2)
 ```
